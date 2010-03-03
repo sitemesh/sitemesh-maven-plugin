@@ -1,0 +1,33 @@
+<project>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-sitemesh3-plugin</artifactId>
+                <configuration>
+                    <config>src/test/resources/test1/sitemesh3.xml</config>
+                    <destDir>src/test/resources/test1/out</destDir>
+                    <fileset>
+                        <directory>src/test/resources/test1/in</directory>
+                        <includes>
+                            <include>**/*.html</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/decorators/*</exclude>
+                            <exclude>*.xml</exclude>
+                        </excludes>
+                    </fileset>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sitemesh</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>sitemesh</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
